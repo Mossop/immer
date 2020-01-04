@@ -16,10 +16,12 @@
     "test:flow": "yarn-or-npm flow check __tests__/flow",
     "watch": "jest --watch",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls && rm -rf ./coverage",
-    "build": "rimraf dist/ && yarn-or-npm bili && yarn-or-npm typed",
+    "bili": "bili",
+    "build": "rimraf dist/ && yarn-or-npm run bili && yarn-or-npm run typed",
     "typed": "cpx 'src/immer.js.flow' dist -v",
     "publish-docs": "cd website && GIT_USER=mweststrate USE_SSH=true yarn run publish-gh-pages",
-    "start": "cd website && yarn start"
+    "start": "cd website && yarn start",
+    "install": "yarn-or-npm run build"
   },
   "husky": {
     "hooks": {
